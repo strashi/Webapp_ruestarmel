@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bienvenue!</title>
+</head>
+<body>
+
+
+
+<span th:if="${admin}" > <a th:href="@{/admin}">Admin</a> </span></br>
+           <a class="nav-link" th:href="@{/logout}">Log off</a>
+
+</body>
+</html>
