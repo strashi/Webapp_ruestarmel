@@ -25,6 +25,7 @@ public class SpringSecurityConfig {
             auth.requestMatchers("/index").hasAnyRole("USER","ADMIN");
             auth.anyRequest().authenticated();
 
+
         }).formLogin(Customizer.withDefaults()).build();
     }
 

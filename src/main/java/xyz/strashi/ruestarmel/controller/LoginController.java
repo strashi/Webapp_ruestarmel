@@ -25,11 +25,11 @@ public class LoginController {
         return "index";
     }
 
-    @GetMapping("/admin")
+   /* @GetMapping("/admin")
     public String getAdmin() {
 
         return "admin";
-    }
+    }*/
 
 
 }
