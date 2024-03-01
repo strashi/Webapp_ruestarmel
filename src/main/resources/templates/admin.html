@@ -2,6 +2,7 @@
 <body>
 Bienvenue Admin
 <br/>
+<a th:href="@{/}">Index</a>
 <div th:if="${message}">
     <h2 th:text="${message}"/>
 </div>
@@ -19,10 +20,19 @@ Bienvenue Admin
     <ul>
         <li th:each="file : ${files}">
             <a th:href="${file}" th:text="${file}" />
-            <video th:src="${file}" th:controls th:width="600"></video>
-        </li>
+            <a th:href="@{/admin/delete/{file}(file=${file.substring(49)})}">Supprimer</a>
+
+            <br/>
+            <video th:src="${file}" controls width="600"></video>
+         </li>
     </ul>
 </div>
+<a th:href="@{/admin/pageenplus/{string}(string=${string})}">La page en plus</a>
+<div th:if="${string}">
+    <h2 th:text="${string}"/>
+</div>
+
+
 
 </body>
 </html>

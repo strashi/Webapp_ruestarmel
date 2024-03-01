@@ -1,5 +1,6 @@
 package xyz.strashi.ruestarmel.service;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -10,6 +11,7 @@ import xyz.strashi.ruestarmel.exception.StorageException;
 import xyz.strashi.ruestarmel.exception.StorageFileNotFoundException;
 import xyz.strashi.ruestarmel.model.StorageProperties;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -44,6 +46,7 @@ public class FileSystemStorageService implements StorageService{
             Path destinationFile = this.rootLocation.resolve(
                             Paths.get(file.getOriginalFilename()))
                     .normalize().toAbsolutePath();
+            System.out.println(destinationFile);
 
             if (!destinationFile.getParent().equals(this.rootLocation.toAbsolutePath())) {
                 // This is a security check
@@ -95,6 +98,15 @@ public class FileSystemStorageService implements StorageService{
         catch (MalformedURLException e) {
             throw new StorageFileNotFoundException("Could not read file: " + filename, e);
         }
+    }
+
+    public void deleteByFile(String filename) throws IOException {
+        /*FileUtils.forceDelete(new File("file"));*/
+
+
+        Path fileToErase = Paths.get(rootLocation.toString() + "/" +filename  );
+
+        Files.delete(fileToErase);
     }
 
     @Override

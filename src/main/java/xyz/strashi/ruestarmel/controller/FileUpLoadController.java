@@ -14,7 +14,12 @@ import xyz.strashi.ruestarmel.exception.StorageFileNotFoundException;
 import xyz.strashi.ruestarmel.service.StorageService;
 
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.stream.Collectors;
+
+
+
 @Controller
 public class FileUpLoadController {
 
@@ -32,6 +37,7 @@ public class FileUpLoadController {
                         path -> MvcUriComponentsBuilder.fromMethodName(FileUpLoadController.class,
                                 "serveFile", path.getFileName().toString()).build().toUri().toString())
                 .collect(Collectors.toList()));
+
 
         return "admin";
     }
@@ -63,5 +69,20 @@ public class FileUpLoadController {
     @ExceptionHandler(StorageFileNotFoundException.class)
     public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
         return ResponseEntity.notFound().build();
+    }
+    @GetMapping("/admin/pageenplus/{string}")
+    public String lapageenplus(@PathVariable("string") String string, Model model){
+        model.addAttribute(string, "Coucou");
+        System.out.println("Page en plus");
+        return "pageenplus";
+    }
+    @GetMapping("/admin/delete/{file}")
+    public String deleteFile(@PathVariable("file") String file ) throws IOException {
+
+        /*Path path = Paths.get(file);
+        String filename = path.getFileName().toString();*/
+        System.out.println(file);
+        storageService.deleteByFile(file);
+        return "redirect:/admin";
     }
 }

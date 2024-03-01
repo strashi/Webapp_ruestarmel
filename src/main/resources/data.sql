@@ -6,5 +6,5 @@ CREATE TABLE dbuser (
                         password VARCHAR(250) NOT NULL,
                         role VARCHAR(250) NOT NULL
 );
-INSERT INTO dbuser (username, password, role) VALUES ('dbuser', '$2y$10$.qkbukzzX21D.bqbI.B2R.tvWP90o/Y16QRWVLodw51BHft7ZWbc.', 'USER'),
-                                                     ('dbadmin', '$2y$10$kp1V7UYDEWn17WSK16UcmOnFd1mPFVF6UkLrOOCGtf24HOYt8p1iC', 'ADMIN');
+INSERT INTO dbuser (username, password, role) VALUES ('visiteur', '$2y$10$7/jI2A3k0/zvHvojsM4H7em.Y4YLuL0iP8YOZ7.B/./Tr5fTQHr/K', 'USER'),
+                                                     ('admin', '$2y$10$CVQkVagxNeFJOf38whHDbejc4b8BCqAXD0sVsQNIKX5HDpYtc5J.e', 'ADMIN');

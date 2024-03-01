@@ -9,7 +9,16 @@
 
 
 <span th:if="${admin}" > <a th:href="@{/admin}">Admin</a> </span></br>
-           <a class="nav-link" th:href="@{/logout}">Log off</a>
+           <a class="nav-link" th:href="@{/logout}">Déconnexion</a>
 
+<div>
+    <ul>
+        <li th:each="file : ${files}">
+            <p th:text="${file.substring(49)}"></p>
+            <video th:src="${file}" controls width="600"></video>
+        </li>
+    </ul>
+
+</div>
 </body>
 </html>
