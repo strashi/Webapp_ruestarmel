@@ -44,11 +44,5 @@ public class LoginController {
         return "index";
     }
 
-   /* @GetMapping("/admin")
-    public String getAdmin() {
-
-        return "admin";
-    }*/
-
 
 }

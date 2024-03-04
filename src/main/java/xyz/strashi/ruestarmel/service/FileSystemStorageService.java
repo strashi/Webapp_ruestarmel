@@ -101,11 +101,8 @@ public class FileSystemStorageService implements StorageService{
     }
 
     public void deleteByFile(String filename) throws IOException {
-        /*FileUtils.forceDelete(new File("file"));*/
-
 
         Path fileToErase = Paths.get(rootLocation.toString() + "/" +filename  );
-
         Files.delete(fileToErase);
     }
 
