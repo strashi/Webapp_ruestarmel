@@ -79,8 +79,6 @@ public class FileUpLoadController {
     @GetMapping("/admin/delete/{file}")
     public String deleteFile(@PathVariable("file") String file ) throws IOException {
 
-        /*Path path = Paths.get(file);
-        String filename = path.getFileName().toString();*/
         System.out.println(file);
         storageService.deleteByFile(file);
         return "redirect:/admin";
